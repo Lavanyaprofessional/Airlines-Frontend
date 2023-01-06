@@ -1,0 +1,31 @@
+<h2>Flight List</h2>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Fight Number</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Flight Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let flight of flights">
+            <td> {{flight.flightNumber}} </td>
+            <td> {{flight.origin}} </td>
+            <td> {{flight.destination}} </td>
+            <td> {{flight.flightDate}} </td>
+            <td>
+                <button (click)="updateFlight(flight.flightNumber)" class ="btn btn-info">Update</button>
+              
+               <!-- <button (click)="showDialog = !showDialog" class="btn btn-info">Update</button>
+                <br>
+                <app-dialog [(visible)]="showDialog" title="update flight" data-popup="width:400;hieght:350">
+                    <button (click) = "showDialog = !showDialog" class ="btn btn-info">Save
+                    </button>
+
+                </app-dialog>-->
+            </td>       
+        </tr>
+    </tbody>
+</table>
