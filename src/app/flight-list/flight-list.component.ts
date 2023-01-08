@@ -11,25 +11,48 @@ import {FlightServiceService}  from '../services/flight-service.service'
 export class FlightListComponent implements OnInit {
 
   @Input() flights:Flight[]
-  flightService:FlightServiceService=new FlightServiceService();
-  flightUpdate:Flight=new Flight();
+  //flightService:FlightServiceService=new FlightServiceService();
+  //flightUpdate:Flight=new Flight();
 
-  constructor(private router: Router){ 
-    this.flights=[{
-      "flightNumber": "abc123456",
-      "origin": "bangalore",
-      "destination": "delhi",
-      "flightDate":"10/11/2020"
-    },
-    {
-      "flightNumber": "pqr123456",
-    "origin": "mumbai",
-    "destination": "bangalore",
-    "flightDate":"22/09/2022"
-    }];
+  constructor(private flightService: FlightServiceService, private router: Router){ 
+    // this.flights=[{
+    //   "flightNumber": "abc123456",
+    //   "origin": "bangalore",
+    //   "destination": "delhi",
+    //   "flightDate":"10/11/2020"
+    // },
+    // {
+    //   "flightNumber": "pqr123456",
+    // "origin": "mumbai",
+    // "destination": "bangalore",
+    // "flightDate":"22/09/2022"
+    // }];
+
+    this.flights=[];
   }
 
   ngOnInit(): void {
+    //this.getFlight();
+    console.log(this.flights);
+    
+    if (this.flights.length == 0){
+      this.getFlight();
+    }
+    
+
+    
+    
+  }
+
+  
+  
+  private getFlight(){
+    this.flightService.getFlightList().subscribe(data => {
+      this.flights = data;
+      console.log(data);
+      console.log("Flights")
+      console.log(this.flights)
+    });
     
     
   }
@@ -41,9 +64,9 @@ export class FlightListComponent implements OnInit {
 
   //this.flights=this.flightService.updateFlight(this.flightUpdate)
 
-  updateFlight(flightNumber:string|undefined){
-    this.router.navigate(['update-flight',flightNumber]);
-  }
+  // updateFlight(flightNumber:string|undefined){
+  //   this.router.navigate(['update-flight',flightNumber]);
+  // }
 
 }
 

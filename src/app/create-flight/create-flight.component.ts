@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../flight';
+import { FlightServiceService } from '../services/flight-service.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-flight',
@@ -8,16 +11,40 @@ import { Flight } from '../flight';
 })
 
 export class CreateFlightComponent implements OnInit {
-  flight: Flight = new Flight();
-  constructor() {}
+  flight: Flight ={
+    flightId:0,
+    origin: "",
+    destination: "",
+    flightdate: "",
+    fare: {
+        fareId: 0,
+        fare: "",
+        currency: "",
+    },
+    inventory: {
+        id: 0,
+        count: 0
+    }
+}
+  constructor(private flightService: FlightServiceService, private router: Router) {}
 
   ngOnInit(): void {
     
     
   }
+
+  saveFlight(){
+    this.flightService.addFlight(this.flight).subscribe(data => {
+      console.log(data);
+      this.flight = new Flight();
+      this.router.navigate(['/flight-list'])
+  },
+  error => console.log(error));}
+  
+
   onSubmit(){
     console.log(this.flight);
-    //this.saveFlight();
+    this.saveFlight();
   }
 
 

@@ -1,17 +1,18 @@
 export class Flight {
-    flightNumber: string|undefined;
-    origin:string|undefined;
-    destination: string|undefined;
-    flightDate: string|undefined;
-    constructor(flightNumber?:string,
-                origin?:string,
-                destination?: string,
-                flightDate?: string){
-            this.flightNumber=flightNumber
-            this.origin=origin
-            this.destination=destination
-            this.flightDate=flightDate
-
-        }
+    flightId: number | undefined
+    origin: string | undefined
+    destination: string | undefined
+    flightdate: string | undefined
+    fare!: {
+        fareId?: number
+        fare: string
+        currency: string
+    }
+    inventory!: {
+        id?: number
+        count: number
+    }
 }
+
+
 

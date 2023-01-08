@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Flight} from '../flight'
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -7,49 +9,67 @@ import {Flight} from '../flight'
 export class FlightServiceService {
 
   flight: Flight[] ;
+  ret:any
+  
 
-  constructor() { 
-    this.flight=[{
-      "flightNumber": "abc123",
-      "origin": "bangalore",
-      "destination": "delhi",
-      "flightDate":"10/11/2020"
-    },
-    {
-      "flightNumber": "pqr456",
-    "origin": "mumbai",
-    "destination": "bangalore",
-    "flightDate":"22/09/2022"
-    }];
+ 
+ private baseURL = "http://localhost:8080/api/";
+
+
+  constructor( private httpClient: HttpClient) { 
+    // this.flight=[{
+    //   "flightNumber": "abc123",
+    //   "origin": "bangalore",
+    //   "destination": "delhi",
+    //   "flightDate":"10/11/2020"
+    // },
+    // {
+    //   "flightNumber": "pqr456",
+    // "origin": "mumbai",
+    // "destination": "bangalore",
+    // "flightDate":"22/09/2022"
+    // }];
+    this.flight=[]
   }
 
-  getAvailableFlights(origin:String|undefined, destination : String|undefined, flightDate:String|undefined):Flight[] {
+  getFlightList(): Observable<Flight[]>{
+   return this.httpClient.get<Flight[]>(`${this.baseURL+"allFlights"}`)
+   
+  }
+
+  getAvailableFlights(origin:String|undefined, destination : String|undefined, flightdate:String|undefined): Observable<Flight[]> {
 
 
-    return this.flight;
+    return this.httpClient.get<Flight[]>(`${this.baseURL+"flights"}/${origin}/${destination}/${flightdate}`);
   
     
   }
-  getFlightByflightNumber(flightNumber: string):Flight{
-    return new Flight(flightNumber,"Bangalore","Delhi","05/01/2023");
 
+  addFlight(flight:Flight){
+    return this.httpClient.post<Flight>(`${this.baseURL+"addFlight"}`,flight)
   }
 
-  updateFlight(updatedFlight:Flight):Flight[]{
+  
+  // getFlightByflightNumber(flightNumber: string):Flight{
+  //   return new Flight(flightNumber,"Bangalore","Delhi","05/01/2023");
 
-    return [{
-      "flightNumber": updatedFlight.flightNumber,
-      "origin": updatedFlight.origin,
-      "destination": updatedFlight.destination,
-      "flightDate":updatedFlight.flightDate
-    },
-    {
-      "flightNumber": "pqr456",
-    "origin": "mumbai",
-    "destination": "bangalore",
-    "flightDate":"22/09/2022"
-    }]
+  // }
 
-  }
+  // updateFlight(updatedFlight:Flight):Flight[]{
+
+  //   return [{
+  //     "flightNumber": updatedFlight.flightNumber,
+  //     "origin": updatedFlight.origin,
+  //     "destination": updatedFlight.destination,
+  //     "flightDate":updatedFlight.flightDate
+  //   },
+  //   {
+  //     "flightNumber": "pqr456",
+  //   "origin": "mumbai",
+  //   "destination": "bangalore",
+  //   "flightDate":"22/09/2022"
+  //   }]
+
+  //  }
   
 }
