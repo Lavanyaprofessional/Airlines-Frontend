@@ -48,8 +48,18 @@ export class FlightServiceService {
   addFlight(flight:Flight){
     return this.httpClient.post<Flight>(`${this.baseURL+"addFlight"}`,flight)
   }
-
   
+  getFlightByFlightId(flightId:number|undefined):Observable<Flight>{
+    return this.httpClient.get<Flight>(`${this.baseURL+"flights"}/${flightId}`);
+
+  }
+  updateFlight(flightId:number|undefined,flight:Flight):Observable<Object>{
+    return this.httpClient.put(`${this.baseURL+"updateflight"}/${flightId}`,flight);
+  }
+
+  deleteFlight(flightId:number|undefined):Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL+"deleteFlight"}/${flightId}`);
+  }
   // getFlightByflightNumber(flightNumber: string):Flight{
   //   return new Flight(flightNumber,"Bangalore","Delhi","05/01/2023");
 

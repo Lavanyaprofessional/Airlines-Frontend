@@ -67,6 +67,16 @@ export class FlightListComponent implements OnInit {
   // updateFlight(flightNumber:string|undefined){
   //   this.router.navigate(['update-flight',flightNumber]);
   // }
+  updateFlight(flightId:number|undefined){
+    this.router.navigate(['update-flight',flightId]);
+  }
+  deleteFlight(flightId:number|undefined){
+    this.flightService.deleteFlight(flightId).subscribe(data=>{
+      console.log(data);
+      this.getFlight();
+    })
+
+  }
 
 }
 

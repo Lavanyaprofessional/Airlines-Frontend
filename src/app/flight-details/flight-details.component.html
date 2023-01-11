@@ -1,0 +1,23 @@
+<h1>Flight Details</h1>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Fight Number</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Flight Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let flight of flights">
+            <td> {{flight.flightId}} </td>
+            <td> {{flight.origin}} </td>
+            <td> {{flight.destination}} </td>
+            <td> {{flight.flightdate}} </td>
+            <td>
+                <button (click)="passengerDetails()"class="btn btn-info" style="width: 100px;" type="book">Book</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

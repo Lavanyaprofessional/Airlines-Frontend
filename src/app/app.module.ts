@@ -11,7 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { FlightListComponent } from './flight-list/flight-list.component';
 import {FlightServiceService} from './services/flight-service.service';
 import { UpdateFlightComponent } from './update-flight/update-flight.component';
-import { UpdateDialogComponent } from './update-dialog/update-dialog.component'
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { UpdateDialogComponent } from './update-dialog/update-dialog.component'
     HomeComponent,
     FlightListComponent,
     UpdateFlightComponent,
-    UpdateDialogComponent
+    UpdateDialogComponent,
+    FlightDetailsComponent,
   ],
   imports: [
     BrowserModule,

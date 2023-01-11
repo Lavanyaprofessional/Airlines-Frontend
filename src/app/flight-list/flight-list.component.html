@@ -16,8 +16,8 @@
             <td> {{flight.destination}} </td>
             <td> {{flight.flightdate}} </td>
             <td>
-                <!--<button (click)="updateFlight(flight.flightNumber)" class ="btn btn-info">Update</button>-->
-              
+                <button (click)="updateFlight(flight.flightId)" class ="btn btn-info">Update</button>
+                <button (click)="deleteFlight(flight.flightId)" class ="btn btn-danger" style ="margin-left: 10px;">Delete</button>
                <!-- <button (click)="showDialog = !showDialog" class="btn btn-info">Update</button>
                 <br>
                 <app-dialog [(visible)]="showDialog" title="update flight" data-popup="width:400;hieght:350">
