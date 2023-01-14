@@ -13,6 +13,8 @@ import {FlightServiceService} from './services/flight-service.service';
 import { UpdateFlightComponent } from './update-flight/update-flight.component';
 import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
+import { BookComponent } from './book/book.component';
+import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
     UpdateFlightComponent,
     UpdateDialogComponent,
     FlightDetailsComponent,
+    BookComponent,
+    PassengerDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,9 +16,10 @@ export class UpdateFlightComponent implements OnInit{
   }
   ngOnInit(): void {
     this.flightId= this.route.snapshot.params['flightId'];
-    //this.flightServiceService.getAvailableFlights(this.origin,this.destination,this.flightDate){
     this.flightServiceService.getFlightByFlightId(this.flightId).subscribe(data =>{
       this.flight=data;
+      console.log(this.flight);
+      
     },error => console.log(error));
     }
 

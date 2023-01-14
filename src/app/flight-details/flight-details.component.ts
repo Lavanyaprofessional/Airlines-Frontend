@@ -28,6 +28,7 @@ constructor(private flightService: FlightServiceService, private route:Activated
 }
 ngOnInit(): void {
   
+  
 }
 
 private getFlightDetails(){
@@ -38,8 +39,9 @@ private getFlightDetails(){
   },error=>console.log(error))
 
 }
-passengerDetails(){
-  this.router.navigate(['\passenger-details']);
+bookFlight(flightId:number|undefined){
+  this.router.navigate(['book-flight',flightId]);
 }
+
 }
 
