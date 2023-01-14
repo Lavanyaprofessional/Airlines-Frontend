@@ -3,26 +3,26 @@ export class Flight {
     origin: string | undefined
     destination: string | undefined
     flightdate: string | undefined
-    fare: {
+    fare!: {
         fareId?: number
         fare: string
         currency: string
     }
     inventory!: {
         id?: number
-        count: number
+        count?: number
     }
 
     constructor(){
-        this.fare={
-            fareId:0,
-            fare:"",
-            currency:"",
-        },
-        this.inventory={
-            id:0,
-            count:0
-        }
+        // this.fare={
+        //     fareId:,
+        //     fare:"",
+        //     currency:"",
+        // },
+        // this.inventory={
+        //     id:0,
+        //     count:0
+        // }
 
     }
 }

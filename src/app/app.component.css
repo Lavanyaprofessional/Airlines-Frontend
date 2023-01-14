@@ -3,6 +3,7 @@ text-align:right
 }*/
  
 
-/*.container {
-    background-image: url(assets\images\aircraft_bg.jpg)
+/*.bg-img {
+    background-image: url(../assets/image/planewhitebg.png);
+    backface-visibility: hidden;
 }*/

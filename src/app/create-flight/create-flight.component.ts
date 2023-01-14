@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Flight } from '../flight';
 import { FlightServiceService } from '../services/flight-service.service'
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -23,10 +24,15 @@ export class CreateFlightComponent implements OnInit {
     },
     inventory: {
         id: 0,
-        count: 0
+        
     }
 }
-  constructor(private flightService: FlightServiceService, private router: Router) {}
+
+currentDate:any=new Date();
+
+  constructor(private flightService: FlightServiceService, private router: Router) {
+    
+  }
 
   ngOnInit(): void {
     
