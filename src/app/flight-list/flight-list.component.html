@@ -1,6 +1,6 @@
-<h2>Flight List</h2>
-<table class="table table-stripped">
-    <thead>
+<h2 style="color: rgb(9, 0, 0); font-style:italic;">Flight List</h2>
+<b><table class="table table-stripped" >
+    <thead style="color:rgb(9, 0, 0); font-size: large;">
         <tr>
             <th>Fight Number</th>
             <th>Origin</th>
@@ -9,12 +9,14 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="color:rgb(248, 250, 252);">
         <tr *ngFor = "let flight of flights">
+            
             <td> {{flight.flightId}} </td>
             <td> {{flight.origin}} </td>
             <td> {{flight.destination}} </td>
             <td> {{flight.flightdate}} </td>
+            
             <td>
                 <button (click)="updateFlight(flight.flightId)" class ="btn btn-info">Update</button>
                 <button (click)="deleteFlight(flight.flightId)" class ="btn btn-danger" style ="margin-left: 10px;">Delete</button>
@@ -29,3 +31,4 @@
         </tr>
     </tbody>
 </table>
+</b>

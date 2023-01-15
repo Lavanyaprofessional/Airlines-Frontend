@@ -1,9 +1,12 @@
-/*.nav-item {
-text-align:right
-}*/
+.text-center{
+   font-style: oblique;
+   color:rgba(53, 6, 86, 0.918);
+}
  
 
-/*.bg-img {
-    background-image: url(../assets/image/planewhitebg.png);
-    backface-visibility: hidden;
-}*/
+.home-bg {
+    background-image: url(../assets/image/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
