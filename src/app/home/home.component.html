@@ -1,24 +1,37 @@
-<div class ="col-md-6 offset-md-3">
-    <form>
+<div class ="col-md-6 offset-md-3" style=" height: 100vh">
+    
     <form (ngSubmit) = "onSearch()">
     
         <div class="form-group">
             <label> Origin</label>
-            <input type="text" class ="form-control" id = "origin"
+            <input type="text" required #origin = "ngModel" [class.is-invalid]="origin.invalid && origin.touched" pattern="^[a-zA-Z]{3,15}$" class ="form-control" id = "origin"
                 [(ngModel)] = "flight.origin" name = "origin">
+                <div *ngIf="origin.errors?.['pattern']; else elseOriginBlock"  class="text-danger"> 
+                    Origin not valid.
+                 </div>
+                 <ng-template #elseOriginBlock>
+                    <small class="text-danger" [class.d-none]="origin.valid||origin.untouched">Origin is Required</small>
+                 </ng-template>
         </div>
     
         <div class="form-group">
             <label> Destination</label>
-            <input type="text" class ="form-control" id = "Destination"
+            <input type="text" required #destination = "ngModel" [class.is-invalid]="destination.invalid && destination.touched" pattern="^[a-zA-Z]{3,15}$" class ="form-control" id = "Destination"
                 [(ngModel)] = "flight.destination" name = "Destination">
+                <div *ngIf="destination.errors?.['pattern']; else elseDestBlock"  class="text-danger"> 
+                    Destination not valid.
+                 </div>
+                 <ng-template #elseDestBlock>
+                    <small class="text-danger" [class.d-none]="destination.valid||destination.untouched">Destination is Required</small>
+                 </ng-template>
         </div>
         <div class="form-group">
             <label>Flight Date</label>
-            <input type="date" class ="form-control" id="flightDate" [(ngModel)] = "flight.flightdate" name="flightDate">
+            <input type="date"  required #date = "ngModel" [class.is-invalid]="date.invalid && date.touched" class ="form-control" id="flightDate" [(ngModel)] = "flight.flightdate" name="flightDate">
+            <small class="text-danger" [class.d-none]="date.valid||date.untouched">Date is Required</small>
         </div>
     
         <button class = "btn btn-success" type ="search">Search</button>
-</form>
-</form>
+    </form>
+
 </div>

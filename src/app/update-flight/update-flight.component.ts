@@ -25,6 +25,7 @@ export class UpdateFlightComponent implements OnInit{
 
     onSubmit(){
       this.flightServiceService.updateFlight(this.flightId,this.flight).subscribe(data =>{
+        alert("Flight details updated successfully!")
         this.router.navigate(['/flight-list']);
       },
       error =>console.log(error));

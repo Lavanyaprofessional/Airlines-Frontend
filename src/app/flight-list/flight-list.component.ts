@@ -73,6 +73,7 @@ export class FlightListComponent implements OnInit {
   deleteFlight(flightId:number|undefined){
     this.flightService.deleteFlight(flightId).subscribe(data=>{
       console.log(data);
+      alert("Flight Details deleted successfully!")
       this.getFlight();
     })
 

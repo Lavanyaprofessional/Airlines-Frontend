@@ -50,6 +50,7 @@ currentDate:any=new Date();
 
   onSubmit(){
     console.log(this.flight);
+    alert("Flight created successfully!")
     this.saveFlight();
   }
 
