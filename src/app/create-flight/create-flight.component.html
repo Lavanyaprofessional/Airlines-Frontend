@@ -1,11 +1,5 @@
 <div class="col-md-6 offset-md-3">
     <h3>Create Flight</h3>
-    <!--<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>-->
 <form name="create-flight">
     <form #flightForm="ngForm" (ngSubmit) = "onSubmit()">
     
@@ -17,7 +11,7 @@
     
         <div class="form-group">
             <label> Origin</label>
-            <input type="text" required #origin = "ngModel" [class.is-invalid]="origin.invalid && origin.touched" pattern="^[a-zA-Z]{3,15}$" class ="form-control" name = "origin"
+            <input type="text" required #origin = "ngModel" pattern="^[a-zA-Z]{3,15}$" class ="form-control" name = "origin"
                 [(ngModel)] = "flight.origin" id="origin" >
             <div *ngIf="origin.errors?.['pattern']; else elseOriginBlock"  class="text-danger"> 
                 Origin not valid.
@@ -29,7 +23,7 @@
     
         <div class="form-group">
             <label> Destination</label>
-            <input type="text" required #destination = "ngModel" [class.is-invalid]="destination.invalid && destination.touched" pattern="^[a-zA-Z]{3,15}$" class ="form-control" name = "Destination"
+            <input type="text" required #destination = "ngModel" pattern="^[a-zA-Z]{3,15}$" class ="form-control" name = "Destination"
                 [(ngModel)] = "flight.destination" id="Destination">
             <div *ngIf="destination.errors?.['pattern']; else elseDestBlock"  class="text-danger"> 
                 Destination not valid.
@@ -47,7 +41,7 @@
 
         <div class="form-group">
             <label> Fare </label>
-            <input type="text" required #fare = "ngModel" [class.is-invalid]="fare.invalid && fare.touched" pattern="^[0-90.00-0.90]{4,10}$" class ="form-control" id = "Fare"
+            <input type="text" required #fare = "ngModel" pattern="^[0-90.00-0.90]{4,10}$" class ="form-control" id = "Fare"
                 [(ngModel)] = "flight.fare.fare" name = "Fare">
             <div *ngIf="fare.errors?.['pattern']; else elseFareBlock"  class="text-danger"> 
                 Fare not valid.
@@ -59,7 +53,7 @@
 
         <div class="form-group">
             <label> Currency </label>
-            <input type="text" required #currency = "ngModel" [class.is-invalid]="currency.invalid && currency.touched" class ="form-control" id = "FareCurrency"
+            <input type="text" required #currency = "ngModel" class ="form-control" id = "FareCurrency"
                 [(ngModel)] = "flight.fare.currency" name = "FareCurrency">
             <small class="text-danger" [class.d-none]="currency.valid||currency.untouched">currency is Required</small>
         </div>
@@ -67,7 +61,7 @@
         
         <div class="form-group">
             <label> No. of  Seats </label>
-            <input type="text" required #seats = "ngModel" [class.is-invalid]="seats.invalid && seats.touched" pattern="^[1-999]{1,4}$" class ="form-control" id = "No.ofSeats"
+            <input type="text" required #seats = "ngModel" pattern="^[001-999]{1,4}$" class ="form-control" id = "No.ofSeats"
                 [(ngModel)] = "flight.inventory.count" name = "No.ofSeats">
             
            <div *ngIf="seats.errors?.['pattern']; else elseSeatsBlock"  class="text-danger"> 

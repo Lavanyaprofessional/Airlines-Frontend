@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  title = 'BrownField Airline';
+  title = 'BrownField Airlines';
 
   
   

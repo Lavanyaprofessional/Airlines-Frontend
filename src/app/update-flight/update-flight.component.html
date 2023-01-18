@@ -6,41 +6,69 @@
         <div class="form-group">
             <label> Flight Number</label>
             <input type="text" class ="form-control" id = "flightNumber"
-                [(ngModel)] = "flight.flightId" name = "flightNumber">
+                [(ngModel)] = "flight.flightId" name = "flightNumber" disabled>
         </div>
     
         <div class="form-group">
             <label> Origin</label>
-            <input type="text" class ="form-control" id = "origin"
+            <input type="text" required #origin = "ngModel" pattern="^[a-zA-Z]{3,15}$" class ="form-control" id = "origin"
                 [(ngModel)] = "flight.origin" name = "origin">
+                <div *ngIf="origin.errors?.['pattern']; else elseOriginBlock"  class="text-danger"> 
+                    Origin not valid.
+                </div>
+                <ng-template #elseOriginBlock>
+                    <small class="text-danger" [class.d-none]="origin.valid||origin.untouched">Origin is Required</small>
+                </ng-template>    
         </div>
     
         <div class="form-group">
             <label> Destination</label>
-            <input type="text" class ="form-control" id = "Destination"
+            <input type="text" required #destination = "ngModel" pattern="^[a-zA-Z]{3,15}$" class ="form-control" id = "Destination"
                 [(ngModel)] = "flight.destination" name = "Destination">
+                <div *ngIf="destination.errors?.['pattern']; else elseDestBlock"  class="text-danger"> 
+                    Destination not valid.
+                 </div>
+                 <ng-template #elseDestBlock>
+                    <small class="text-danger" [class.d-none]="destination.valid||destination.untouched">Destination is Required</small>
+                 </ng-template>
         </div>
+
         <div class="form-group">
             <label> Flight Date</label>
             <input type="date" class ="form-control" id="flightDate" [(ngModel)] = "flight.flightdate" name="flightDate">
             
         </div>
+
         <div class="form-group">
             <label> Fare </label>
-            <input type="text" class ="form-control" id = "Fare"
+            <input type="text" required #fare="ngModel" pattern="^[0-90.00-0.90]{4,10}$" class ="form-control" id = "Fare"
                 [(ngModel)] = "flight.fare.fare" name = "Fare">
+                <div *ngIf="fare.errors?.['pattern']; else elseFareBlock"  class="text-danger"> 
+                    Fare not valid.
+                 </div>
+                 <ng-template #elseFareBlock>
+                    <small class="text-danger" [class.d-none]="fare.valid||fare.untouched">Fare is Required</small>
+                 </ng-template>
         </div>
+
         <div class="form-group">
             <label> Currency </label>
-            <input type="text" class ="form-control" id = "FareCurrency"
+            <input type="text" required #currency="ngModel" class ="form-control" id = "FareCurrency"
                 [(ngModel)] = "flight.fare.currency" name = "FareCurrency">
+            <small class="text-danger" [class.d-none]="currency.valid||currency.untouched">currency is Required</small>
         </div>
         
         
         <div class="form-group">
             <label> No. of  Seats </label>
-            <input type="text" class ="form-control" id = "No.ofSeats"
+            <input type="text" required #seats="ngModel" pattern="^[001-999]{1,4}$" class ="form-control" id = "No.ofSeats"
                 [(ngModel)] = "flight.inventory.count" name = "No.ofSeats">
+                <div *ngIf="seats.errors?.['pattern']; else elseSeatsBlock"  class="text-danger"> 
+                    Not valid Number.
+                </div>
+                <ng-template #elseSeatsBlock>
+                   <small class="text-danger" [class.d-none]="seats.valid||seats.untouched">Seats is Required</small>
+                </ng-template>
         </div>
     
         <button class = "btn btn-success" type ="submit">Submit</button>

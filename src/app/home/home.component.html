@@ -1,7 +1,8 @@
+  <!-- {{message}} -->
 <div class ="col-md-6 offset-md-3" style=" height: 100vh">
     
     <form (ngSubmit) = "onSearch()">
-    
+         
         <div class="form-group">
             <label> Origin</label>
             <input type="text" required #origin = "ngModel" [class.is-invalid]="origin.invalid && origin.touched" pattern="^[a-zA-Z]{3,15}$" class ="form-control" id = "origin"

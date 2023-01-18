@@ -29,6 +29,7 @@ export class FlightListComponent implements OnInit {
     // }];
 
     this.flights=[];
+    this.deleteFlight;
   }
 
   ngOnInit(): void {
@@ -46,7 +47,7 @@ export class FlightListComponent implements OnInit {
 
   
   
-  private getFlight(){
+ getFlight(){
     this.flightService.getFlightList().subscribe(data => {
       this.flights = data;
       console.log(data);
@@ -73,14 +74,26 @@ export class FlightListComponent implements OnInit {
   deleteFlight(flightId:number|undefined){
     this.flightService.deleteFlight(flightId).subscribe(data=>{
       console.log(data);
-      alert("Flight Details deleted successfully!")
       this.getFlight();
-    })
-
-  }
-
+      alert("flight deleted successfully")
+      //this.confirmation();
+    },)
 }
 
+confirmation(deleteFlightId:number|undefined){
+  var r = confirm("Are you sure you want to Permanently delete this flight?");
+        if (r == true) {
+         this.deleteFlight(deleteFlightId)
+} else{
+  this.getFlight();
+  alert("Flight not deleted")
+    }}
+    }
+
+    
+    
+
+  
 
 
 

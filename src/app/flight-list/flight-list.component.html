@@ -1,5 +1,5 @@
 <h2 style="color: rgb(9, 0, 0); font-style:italic;">Flight List</h2>
-<b><table class="table table-stripped" >
+<b><table class="table table-stripped" style=" height: 100vh">
     <thead style="color:rgb(9, 0, 0); font-size: large;">
         <tr>
             <th>Fight Number</th>
@@ -9,7 +9,7 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody style="color:rgb(248, 250, 252);" >
+    <tbody>
         <tr *ngFor = "let flight of flights">
             
             <td> {{flight.flightId}} </td>
@@ -19,14 +19,8 @@
             
             <td>
                 <button (click)="updateFlight(flight.flightId)" class ="btn btn-info">Update</button>
-                <button (click)="deleteFlight(flight.flightId)" class ="btn btn-danger" style ="margin-left: 10px;">Delete</button>
-               <!-- <button (click)="showDialog = !showDialog" class="btn btn-info">Update</button>
-                <br>
-                <app-dialog [(visible)]="showDialog" title="update flight" data-popup="width:400;hieght:350">
-                    <button (click) = "showDialog = !showDialog" class ="btn btn-info">Save
-                    </button>
-
-                </app-dialog>-->
+                <button (click)="confirmation(flight.flightId)" class ="btn btn-danger" style ="margin-left: 10px;">Delete</button>
+               
             </td>       
         </tr>
     </tbody>
