@@ -1,12 +1,59 @@
-<div>
-    <h4>Passenger Details</h4>
-    <form>
-        <label for ="fristName">Frist Name:</label>
-        <input type="text" id="fristName" name="fristName" value="Jack">
-        <label for ="lastName">Last Name</label>
-        <input type="text" id="lastname" name="lastname" value="Pearson">
-        <label for ="gender">Gender</label>
-        <input type="text" id="gender" name="gender" value="34">
-        
-    </form>
-</div>
+<h4>Passenger Details</h4>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div
+      class="row col-auto"
+      *ngFor="let passenger of passengers; let i = index"
+    >
+      <div class="form-group col-auto">
+        <label>First Name</label>
+
+        <input
+          type="text"
+          class="form-control"
+          name="firstname{{ i }}"
+          [(ngModel)]="passenger.firstname"
+        />
+      </div>
+
+      <div class="form-group col-auto">
+        <label>Last Name</label>
+
+        <input
+          type="text"
+          class="form-control"
+          name="lastname{{ i }}"
+          [(ngModel)]="passenger.lastname"
+        />
+      </div>
+
+      <div class="form-group col-auto">
+        <label>Gender</label>
+
+        <input
+          type="text"
+          class="form-control"
+          name="gender{{ i }}"
+          [(ngModel)]="passenger.gender"
+        />
+      </div>
+
+      <div
+        class="form-group col-auto"
+        style="padding: 24px 10px"
+        *ngIf="i != 0"
+      >
+        <span (click)="removeForm(i)" class="btn btn-danger mb-2">-</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-2">
+    <span (click)="addForm()" class="btn btn-success">+</span>
+
+    <button class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<button (click)="onSave()" class="btn btn-success">Confirm Booking</button>

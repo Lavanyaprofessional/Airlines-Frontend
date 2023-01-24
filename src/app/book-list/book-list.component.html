@@ -1,0 +1,18 @@
+<h2 style="color: rgb(9, 0, 0); font-style:italic;">Booking List</h2>
+<b><table class="table table-stripped" style=" height: 100vh">
+    <thead style="color:rgb(9, 0, 0); font-size: large;">
+        <tr>
+            <th>Booking Id</th>
+            <th>Booking Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td> {{book.bookId}}</td>
+            <td> {{book.bookingDate}}</td>
+            <td>
+                <button (click)="bookDetails(book.bookId)" class="btn btn-info">Book Details</button>
+            </td>
+        </tr>
+    </tbody>

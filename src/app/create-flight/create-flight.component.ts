@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Flight } from '../flight';
 import { FlightServiceService } from '../services/flight-service.service'
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+//import { DatePipe } from '@angular/common';
+import { AbstractControl, AbstractControlOptions, ControlContainer, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { group } from '@angular/animations';
+//import { formValidation } from '../crossfield.validation';
 
 
 @Component({
@@ -12,31 +15,59 @@ import { DatePipe } from '@angular/common';
 })
 
 export class CreateFlightComponent implements OnInit {
-  flight: Flight ={
-    flightId:0,
-    origin: "",
-    destination: "",
-    flightdate: "",
-    fare: {
-        fareId: 0,
-        fare: "",
-        currency: "",
-    },
-    inventory: {
-        id: 0,
-        
-    }
+form!: FormGroup;
+flight: Flight ={
+  flightId:0,
+  origin: "",
+  destination: "",
+  flightdate: "",
+  fare: {
+      fareId: 0,
+      fare: "",
+      currency: "",
+  },
+  inventory: {
+      id: 0,
+      
+  }
 }
+// fromToForm=this.formBuilder.group({
+//   from:this.flight.origin,
+//   to:this.flight.destination
+//   },{Validators: formValidation});
+
 
 currentDate:any=new Date();
 
-  constructor(private flightService: FlightServiceService, private router: Router) {
+  constructor(private flightService: FlightServiceService, private router: Router,private formBuilder:FormBuilder) {
+    
+  }
+  
+ 
+
+  ngOnInit(): void {   
+    this.form=this.formBuilder.group({    
+      "origin":this.flight.origin,
+      "destination": this.flight.destination
+    }
+    ,
+    {
+      Validators: this.validateCrossfield
+    });
+    console.log(origin);
     
   }
 
-  ngOnInit(): void {
+  validateCrossfield (group:FormGroup){
+    var ori= group.controls['origin'];
+    var dest= group.controls['destination'];
+    console.log("crossfieldvalidate function is called");
     
-    
+
+    if(ori.value === dest.value){
+      dest.setErrors({validateCrossfield:true});
+    }
+    return null;
   }
 
   saveFlight(){
@@ -54,5 +85,5 @@ currentDate:any=new Date();
     this.saveFlight();
   }
 
-
+  
 }

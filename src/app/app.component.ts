@@ -8,6 +8,4 @@ import { DatePipe } from '@angular/common';
 export class AppComponent{
   title = 'BrownField Airlines';
 
-  
-  
 }

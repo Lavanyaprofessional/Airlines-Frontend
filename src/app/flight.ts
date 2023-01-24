@@ -12,6 +12,10 @@ export class Flight {
         id?: number
         count?: number
     }
+    static flightId: number
+    static origin: string
+    static destination: string
+    static flightdate: string
 
     constructor(){
         // this.fare={

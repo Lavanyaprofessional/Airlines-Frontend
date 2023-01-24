@@ -10,20 +10,23 @@
         <li class = "nav-item">
             <a routerLink="create-flight" routerLinkActive="active" class="nav-link" >Add Flight Details</a>
         </li>
+        <li class = "nav-item">
+            <a routerLink="book-list" routerLinkActive="active" class="nav-link" >Book list</a>
+        </li>
     </ul>
     
     <ul class="navbar-nav ms-auto" >
         <li class = "nav-item">
-            <a routerLink="login" routerLinkActive="active" class="nav-link"> User</a>
+            <a routerLink="login" routerLinkActive="active" class="nav-link"> Login</a>
         </li>
         <li class = "nav-item">
-            <a routerLink="Login" routerLinkActive="active" class="nav-link">Admin</a>
+            <a routerLink="admin-page" routerLinkActive="active" class="nav-link">Admin</a>
         </li>
     </ul>
     
     
 </nav>
-<h1 class="text-center">{{title}}</h1>
+<!-- <h1 class="text-center">{{title}}</h1> -->
 <div class = "container" >
 <router-outlet></router-outlet>
 </div>

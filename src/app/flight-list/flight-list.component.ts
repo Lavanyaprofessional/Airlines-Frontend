@@ -89,13 +89,3 @@ confirmation(deleteFlightId:number|undefined){
   alert("Flight not deleted")
     }}
     }
-
-    
-    
-
-  
-
-
-
-
-

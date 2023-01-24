@@ -17,6 +17,10 @@ import { BookComponent } from './book/book.component';
 import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { BookListComponent } from './book-list/book-list.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+//import { FormDirectiveDirective } from './form-directive.directive';
 
 
 @NgModule({
@@ -32,6 +36,11 @@ import { SignupComponent } from './signup/signup.component';
     PassengerDetailsComponent,
     LoginComponent,
     SignupComponent,
+    BookListComponent,
+    BookDetailsComponent,
+    AdminPageComponent,
+    
+    //FormDirectiveDirective,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +48,7 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    // RequestOptions,
+    
   ],
   providers: [FlightServiceService],
   bootstrap: [AppComponent]

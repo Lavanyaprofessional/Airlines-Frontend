@@ -8,8 +8,9 @@
             <input type="text" class ="form-control" id = "flightNumber"
                 [(ngModel)] = "flight.flightId" name = "flightNumber">
         </div>-->
-    
-        <div class="form-group">
+
+        <!-- <form appFormDirective #flightForm="ngForm"> -->
+            <div class="form-group">
             <label> Origin</label>
             <input type="text" required #origin = "ngModel" pattern="^[a-zA-Z]{3,15}$" class ="form-control" name = "origin"
                 [(ngModel)] = "flight.origin" id="origin" >
@@ -19,9 +20,9 @@
              <ng-template #elseOriginBlock>
                 <small class="text-danger" [class.d-none]="origin.valid||origin.untouched">Origin is Required</small>
              </ng-template>
-        </div>
-    
-        <div class="form-group">
+            </div>
+
+             <div class="form-group">
             <label> Destination</label>
             <input type="text" required #destination = "ngModel" pattern="^[a-zA-Z]{3,15}$" class ="form-control" name = "Destination"
                 [(ngModel)] = "flight.destination" id="Destination">
@@ -31,7 +32,16 @@
              <ng-template #elseDestBlock>
                 <small class="text-danger" [class.d-none]="destination.valid||destination.untouched">Destination is Required</small>
              </ng-template>
-        </div>
+             <div *ngIf="flightForm.ngSubmit" class="text-danger">
+                <span *ngIf="form.errors?.['validateCrossfield']">destination not be same</span>
+             </div>
+             <!-- <div *ngIf="flightForm.errors?.['fieldsNotEqual'] && (flightForm.touched||flightForm.dirty)">
+                fields dont match
+             </div> -->
+             </div>
+             <!-- </form> -->
+        
+    
 
         <div class="form-group">
             <label> Flight Date</label>
