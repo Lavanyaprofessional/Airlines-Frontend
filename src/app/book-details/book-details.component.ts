@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Book } from '../book';
 import { Flight } from '../flight';
 import { BookServiceService } from '../services/book-service.service';
+import { Passenger } from '../passenger';
 
 @Component({
   selector: 'app-book-details',
@@ -11,11 +12,16 @@ import { BookServiceService } from '../services/book-service.service';
 })
 export class BookDetailsComponent implements OnInit {
   // flight:Flight=new Flight();
+  
  book : Book=new Book();
  bookId:number|undefined;
 
+  passengers: Passenger[] = [];
+
 
   constructor(private bookService:BookServiceService, private route:ActivatedRoute){
+
+    this.passengers;
    
 
   }
@@ -28,4 +34,6 @@ export class BookDetailsComponent implements OnInit {
             
     },error=> console.log(error));
   }
+
+  
 }

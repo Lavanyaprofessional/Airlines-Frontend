@@ -13,7 +13,7 @@ export class FlightServiceService {
   
 
  
- private baseURL = "http://localhost:8080/api/";
+ private baseURL = "http://localhost:8091/search/";
 
 
   constructor( private httpClient: HttpClient) { 

@@ -6,7 +6,7 @@ import { Passenger } from '../passenger';
 
 import { BookServiceService } from '../services/book-service.service';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Book } from '../book';
 
@@ -27,40 +27,33 @@ export class PassengerDetailsComponent implements OnInit {
     gender: '',
   };
 
+  passengers: Passenger[] =[];
+
   book: Book = {
-    flightId: 0,
-    origin: '',
-    destination: '',
-    flightdate: '',
+    flight : Flight,
     bookId: 0,
     bookingDate: '',
-    fare: {
-      fare: '',
-    },
-    status: '',
-    passenger: {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      gender: '',
-    },
-    available: '',
+    passenger: this.passengers
   };
 
-  passengers: any = [];
+  
 
-  //index:any;
-
-  //passengersForm!: FormGroup;
+   flight:Flight;
 
   constructor(
     private bookservice: BookServiceService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private route:ActivatedRoute
+  ) {
+
+    this.flight=JSON.parse(this.route.snapshot.paramMap.get('Flight')!)
+  }
 
   ngOnInit(): void {
     this.passenger = new Passenger();
     this.passengers.push(this.passenger);
+    console.log(this.flight);
+    
   }
 
   addForm() {
@@ -77,14 +70,14 @@ export class PassengerDetailsComponent implements OnInit {
   }
 
   onSave() {
-    this.bookservice.saveBook(this.book).subscribe((data) => {
-      console.log(data);
-
-      this.passengers = new Passenger();
-
-      this.book = new Book();
-
+    this.book.flight= this.flight;
+    console.log(this.book);
+    
+    this.bookservice.saveBook(this.flight,this.passengers).subscribe((data) => {
       console.log(this.book);
+      console.log(data);
+      this.book = new Book();
+      this.router.navigate(['/book-details',this.book,this.passengers])
     });
   }
 }

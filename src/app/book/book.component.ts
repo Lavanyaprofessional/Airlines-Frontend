@@ -39,8 +39,8 @@ export class BookComponent implements OnInit {
       this.show = !this.show;  
     }
 
-    passengerDetails(){
-      this.router.navigate(['passenger-details'])
+    passengerDetails(flightId:number|undefined){
+      this.router.navigate(['passenger-details',flightId])
     }
 
 

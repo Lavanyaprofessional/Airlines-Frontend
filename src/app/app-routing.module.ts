@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'update-flight/:flightId', component : UpdateFlightComponent},
   {path:'flight-details', component:FlightDetailsComponent},
   {path:'book-flight/:flightId', component:BookComponent},
-  {path:'passenger-details', component:PassengerDetailsComponent},
+  {path:'passenger-details/:Flight', component:PassengerDetailsComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'book-list', component:BookListComponent},

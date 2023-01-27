@@ -17,17 +17,19 @@
         </tr>
     </thead>
     <tbody>
-         <tr>
+         <tr *ngFor="let passenger of passengers">
+            <!-- <div class="row col-auto" *ngFor="let passenger of passengers; let i = index"> -->
             <td> {{book.bookId}}</td>
             <td> {{book.bookingDate}}</td>
-            <td> {{book.flightId}}</td>
-            <td> {{book.origin}}</td>
-            <td> {{book.destination}}</td>
-            <td> {{book.flightdate}}</td>
-            <td> {{book.fare}}</td>
-            <td> {{book.passenger.firstName}}</td>
-            <td> {{book.passenger.lastName}}</td>
-            <td> {{book.passenger.gender}}</td>
+            <td> {{book.flight.flightId}}</td>
+            <td> {{book.flight.origin}}</td>
+            <td> {{book.flight.destination}}</td>
+            <td> {{book.flight.flightdate}}</td>
+            <!-- <td> {{book.fare}}</td>  -->
+            <td> {{book.passenger[0].firstName}}</td>
+            <td> {{book.passenger[1].lastName}}</td>
+            <td> {{book.passenger[2].gender}}</td>
+            <!-- </div> -->
 
         
         </tr> 

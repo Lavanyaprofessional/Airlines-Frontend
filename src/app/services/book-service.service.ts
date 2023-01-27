@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../book';
+import { Flight } from '../flight';
+import { Passenger } from '../passenger';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class BookServiceService {
   book: Book[];
   ret : any;
 
- private baseURL="http://localhost:8082/"
+ private baseURL="http://localhost:8060/book/"
 
   constructor(private httpclient:HttpClient) { 
     this.book=[]
@@ -26,7 +28,17 @@ export class BookServiceService {
 
   }
 
-  saveBook(book:Book){
-    return this.httpclient.post<Book>(`${this.baseURL+"bookings"}`,book);
+  saveBook(flight:Flight,passengers:Passenger[]){
+    let body= {
+    "flightNumber":flight.flightId,
+	  "origin":flight.origin,
+	  "destination":flight.destination,
+	  "flightDate":flight.flightdate,
+	  "passenger":passengers
+    }
+  console.log(body);
+  
+
+    return this.httpclient.post<Book>(`${this.baseURL+"bookings"}`,body);
   }
 }

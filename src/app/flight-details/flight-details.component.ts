@@ -16,7 +16,7 @@ export class FlightDetailsComponent implements OnInit {
   
 
 constructor(private flightService: FlightServiceService, private route:ActivatedRoute, private router: Router ){
-  this.flight.origin=this.route.snapshot.paramMap.get('origin')!
+  this.flight.origin=this.route.snapshot.paramMap.get('origin')! 
   this.flight.destination=this.route.snapshot.paramMap.get('destination')!
   this.flight.flightdate=this.route.snapshot.paramMap.get('date')!
 

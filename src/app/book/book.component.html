@@ -17,7 +17,7 @@
                 <td class="align-middle"> {{flight.destination}}</td>
                 <td class="align-middle"> {{flight.flightdate}}</td>
                 <td>
-                <button (click)="toggle()" class ="btn btn-info">Details</button>
+                <button (click)="toggle()" class ="btn btn-info">Details</button> 
                 </td>
             </tr>
         </table></b>
@@ -36,6 +36,6 @@
         </ng-container>
 
     <div class="mx-auto position-absolute bottom-0 start-50 translate-middle-x">
-        <button (click)="passengerDetails()" class="btn btn-primary align-text-bottom" type="button">Add Passenger Details</button>
+        <button (click)="passengerDetails(flight.flightId)" class="btn btn-primary align-text-bottom" type="button">Add Passenger Details</button>
     </div>
 </div>
