@@ -13,7 +13,7 @@ export class FlightServiceService {
   
 
  
- private baseURL = "http://localhost:8080/api/";
+ private baseURL = "http://localhost:8091/search/";
 
 
   constructor( private httpClient: HttpClient) { 
@@ -37,10 +37,10 @@ export class FlightServiceService {
    
   }
 
-  getAvailableFlights(origin:String|undefined, destination : String|undefined, flightdate:String|undefined): Observable<Flight[]> {
+  getAvailableFlights(origin:String|undefined, destination : String|undefined, flightDate:String|undefined): Observable<Flight[]> {
 
 
-    return this.httpClient.get<Flight[]>(`${this.baseURL+"flights"}/${origin}/${destination}/${flightdate}`);
+    return this.httpClient.get<Flight[]>(`${this.baseURL+"flights"}/${origin}/${destination}/${flightDate}`);
   
     
   }

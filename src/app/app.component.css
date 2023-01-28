@@ -3,10 +3,23 @@
    color:rgba(53, 6, 86, 0.918);
 }
  
-
+/* .navbar navbar-expand-sm navbar-light{
+     font-family: 'Times New Roman', Times, serif;
+     font-weight: bold;
+} */
  /* .home-bg {
     background-image: url(../assets/image/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover; 
     
 }   */
+
+.navbar-nav{
+   font-weight: bold;
+   font-family: 'Times New Roman', Times, serif;
+   /* color: #9ED2C6; */
+}
+
+.nav-link{
+   color: aliceblue;
+}

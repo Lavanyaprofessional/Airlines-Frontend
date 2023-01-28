@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit{
 
 
   onSearch(){
-      this.router.navigate(['/flight-details',{origin:this.flight.origin,destination:this.flight.destination,date:this.flight.flightdate}])
+      this.router.navigate(['/flight-details',{origin:this.flight.origin,destination:this.flight.destination,date:this.flight.flightDate}])
   }
 
     }

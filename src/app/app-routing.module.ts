@@ -5,6 +5,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookListComponent } from './book-list/book-list.component';
 
 import { BookComponent } from './book/book.component';
+import { CheckInComponent } from './checkin/check-in/check-in.component';
 import { CreateFlightComponent } from './create-flight/create-flight.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { FlightListComponent } from './flight-list/flight-list.component';
@@ -22,12 +23,13 @@ const routes: Routes = [
   {path:'update-flight/:flightId', component : UpdateFlightComponent},
   {path:'flight-details', component:FlightDetailsComponent},
   {path:'book-flight/:flightId', component:BookComponent},
-  {path:'passenger-details', component:PassengerDetailsComponent},
+  {path:'passenger-details/:Flight', component:PassengerDetailsComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'book-list', component:BookListComponent},
   {path:'book-details/:bookId',component:BookDetailsComponent},
-  {path:'admin-page',component:AdminPageComponent}
+  {path:'admin-page',component:AdminPageComponent},
+  {path:'check-in/:firstName',component:CheckInComponent}
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@ export class Flight {
     flightId: number | undefined
     origin: string | undefined
     destination: string | undefined
-    flightdate: string | undefined
+    flightDate: string | undefined
     fare!: {
         fareId?: number
         fare: string
@@ -15,7 +15,7 @@ export class Flight {
     static flightId: number
     static origin: string
     static destination: string
-    static flightdate: string
+    static flightDate: string
 
     constructor(){
         // this.fare={

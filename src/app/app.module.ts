@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
+import {MatSidenavModule} from '@angular/material/sidenav'
 // import { RequestOptions} from '@angular/http'
+//import{MatExpansionModule} from '@angular/material/expansion'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,7 @@ import { SignupComponent } from './signup/signup.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { CheckInComponent } from './checkin/check-in/check-in.component';
 //import { FormDirectiveDirective } from './form-directive.directive';
 
 
@@ -39,6 +42,7 @@ import { AdminPageComponent } from './admin/admin-page/admin-page.component';
     BookListComponent,
     BookDetailsComponent,
     AdminPageComponent,
+    CheckInComponent,
     
     //FormDirectiveDirective,
   ],
@@ -48,7 +52,7 @@ import { AdminPageComponent } from './admin/admin-page/admin-page.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    MatSidenavModule
   ],
   providers: [FlightServiceService],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <div>
     <div class="container-fluid" style="height:100vh">
-       <h3 style = "text-align: center">{{flight.origin}}  &nbsp; {{flight.destination}}  &nbsp; {{flight.flightdate}}</h3><br>
+       <h3 style = "text-align: center">{{flight.origin}}  &nbsp; {{flight.destination}}  &nbsp; {{flight.flightDate}}</h3><br>
        <b><table class="table table-borderless">
             <thead>
             <tr>
@@ -15,7 +15,7 @@
             <tr>
                 <td class="align-middle"> {{flight.origin}}</td>
                 <td class="align-middle"> {{flight.destination}}</td>
-                <td class="align-middle"> {{flight.flightdate}}</td>
+                <td class="align-middle"> {{flight.flightDate}}</td>
                 <td>
                 <button (click)="toggle()" class ="btn btn-info">Details</button>
                 </td>
@@ -36,6 +36,6 @@
         </ng-container>
 
     <div class="mx-auto position-absolute bottom-0 start-50 translate-middle-x">
-        <button (click)="passengerDetails()" class="btn btn-primary align-text-bottom" type="button">Add Passenger Details</button>
+        <button (click)="passengerDetails(flight.flightId)" class="btn btn-primary align-text-bottom" type="button">Add Passenger Details</button>
     </div>
 </div>

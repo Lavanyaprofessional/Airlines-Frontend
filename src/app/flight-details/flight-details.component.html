@@ -6,6 +6,7 @@
             <th>Origin</th>
             <th>Destination</th>
             <th>Flight Date</th>
+            <th>Fare</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -14,7 +15,8 @@
             <td> {{flight.flightId}} </td>
             <td> {{flight.origin}} </td>
             <td> {{flight.destination}} </td>
-            <td> {{flight.flightdate}} </td>
+            <td> {{flight.flightDate}} </td>
+            <td> {{flight.fare.fare}} </td>
             <td>
                 <button (click)="bookFlight(flight.flightId)"class="btn btn-info" style="width: 100px;" type="book">Book</button>
             </td>

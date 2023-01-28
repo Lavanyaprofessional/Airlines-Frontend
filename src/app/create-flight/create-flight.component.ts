@@ -20,7 +20,7 @@ flight: Flight ={
   flightId:0,
   origin: "",
   destination: "",
-  flightdate: "",
+  flightDate: "",
   fare: {
       fareId: 0,
       fare: "",

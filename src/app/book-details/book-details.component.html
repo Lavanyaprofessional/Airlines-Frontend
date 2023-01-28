@@ -1,4 +1,4 @@
-<h2 style="color: rgb(9, 0, 0); font-style:italic;">Booking Details</h2>
+<h2 style="color: rgb(9, 0, 0); font-style:italic;">Booking Confirmed</h2>
 <b><table class="table table-stripped" style=" height: 100vh">
     <thead style="color:rgb(9, 0, 0); font-size: large;">
         <tr>
@@ -8,27 +8,26 @@
             <th>Origin</th>
             <th>Destination</th>
             <th>Flight Date</th>
-            <th>Fare</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Gender</th>
+            <th>Total Fare</th>
             <th>status</th>
+
             <!-- <th>Actions</th> -->
         </tr>
     </thead>
     <tbody>
-         <tr>
+         <tr *ngFor="let book of books">
             <td> {{book.bookId}}</td>
-            <td> {{book.bookingDate}}</td>
-            <td> {{book.flightId}}</td>
-            <td> {{book.origin}}</td>
-            <td> {{book.destination}}</td>
-            <td> {{book.flightdate}}</td>
-            <td> {{book.fare}}</td>
-            <td> {{book.passenger.firstName}}</td>
-            <td> {{book.passenger.lastName}}</td>
-            <td> {{book.passenger.gender}}</td>
-
-        
+            <td> {{book.bookingDate}}</td>h
+            <td> {{book.flight.flightId}}</td>
+            <td> {{book.flight.origin}}</td>
+            <td> {{book.flight.destination}}</td>
+            <td> {{book.flight.flightDate}}</td>
+            <td> {{book.passenger[0].firstName}}</td>
+            <td> {{book.passenger[1].lastName}}</td>
+            <td> {{book.passenger[2].gender}}</td>
+            <td> {{book.totalFare}}</td>
         </tr> 
     </tbody>

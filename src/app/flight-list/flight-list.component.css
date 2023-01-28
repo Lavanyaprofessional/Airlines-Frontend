@@ -1,5 +1,23 @@
-/*.list-bg{
-    background-image: url('../flight-list/images/planelistbg.jpg');
+.list-bg{
+    /* background-image: url('../flight-list/images/planelistbg.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
-}*/
+    background-size: contain; */
+ /* padding: auto; */
+ padding-left: 5%;
+ height: 100vh;
+ width: 100vw;
+ position: fixed;
+
+}
+
+tbody{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+thead{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bolder;
+}
+

@@ -45,7 +45,7 @@
 
         <div class="form-group">
             <label> Flight Date</label>
-            <input type="date" min="{{currentDate | date:'yyyy-MM-dd'}}" required #date = "ngModel" [class.is-invalid]="date.invalid && date.touched" class ="form-control" name="flightDate" [(ngModel)] = "flight.flightdate" >
+            <input type="date" min="{{currentDate | date:'yyyy-MM-dd'}}" required #date = "ngModel" [class.is-invalid]="date.invalid && date.touched" class ="form-control" name="flightDate" [(ngModel)] = "flight.flightDate" >
             <small class="text-danger" [class.d-none]="date.valid||date.untouched">Date is Required</small>
         </div>
 

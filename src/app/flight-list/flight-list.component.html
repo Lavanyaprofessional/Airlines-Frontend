@@ -1,4 +1,5 @@
-<h2 style="color: rgb(9, 0, 0); font-style:italic;">Flight List</h2>
+<div class="list-bg" [style.background-image]="'linear-gradient(-225deg, #91D8E4 50%, #82AAE3 80%)'">
+<h2>Flight List</h2>
 <b><table class="table table-stripped" style=" height: 100vh">
     <thead style="color:rgb(9, 0, 0); font-size: large;">
         <tr>
@@ -15,7 +16,7 @@
             <td> {{flight.flightId}} </td>
             <td> {{flight.origin}} </td>
             <td> {{flight.destination}} </td>
-            <td> {{flight.flightdate}} </td>
+            <td> {{flight.flightDate}} </td>
             
             <td>
                 <button (click)="updateFlight(flight.flightId)" class ="btn btn-info">Update</button>
@@ -26,3 +27,4 @@
     </tbody>
 </table>
 </b>
+</div>

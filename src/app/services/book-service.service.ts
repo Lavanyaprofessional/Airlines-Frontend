@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../book';
+import { Checkin } from '../checkin';
+import { Flight } from '../flight';
+import { Passenger } from '../passenger';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,7 @@ export class BookServiceService {
   book: Book[];
   ret : any;
 
- private baseURL="http://localhost:8082/"
+ private baseURL="http://localhost:8060/book/"
 
   constructor(private httpclient:HttpClient) { 
     this.book=[]
@@ -26,7 +29,20 @@ export class BookServiceService {
 
   }
 
-  saveBook(book:Book){
-    return this.httpclient.post<Book>(`${this.baseURL+"bookings"}`,book);
+  saveBook(flight:Flight,passengers:Passenger[]){
+    let body= {
+      "flightNumber":flight.flightId,
+      "origin":flight.origin,
+      "destination":flight.destination,
+      "flightDate":flight.flightDate,
+      "passenger":passengers
+    }
+    console.log(body);
+    return this.httpclient.post<Book>(`${this.baseURL+"bookings"}`,body);
+  }
+
+  getCheckInDetailsToSaveCheckInData(firstName:string|undefined, lastName:string|undefined,flightNumber:number|undefined,flightDate: string|undefined,bookingId:number|undefined):Observable<Checkin[]>{
+    return this.httpclient.get<Checkin[]>(`${this.baseURL+"bookings/cnfCheckIn"}/${firstName}/${lastName}/${flightNumber}/${flightDate}/${bookingId}`);
+  
   }
 }

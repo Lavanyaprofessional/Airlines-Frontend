@@ -18,7 +18,7 @@ export class FlightDetailsComponent implements OnInit {
 constructor(private flightService: FlightServiceService, private route:ActivatedRoute, private router: Router ){
   this.flight.origin=this.route.snapshot.paramMap.get('origin')!
   this.flight.destination=this.route.snapshot.paramMap.get('destination')!
-  this.flight.flightdate=this.route.snapshot.paramMap.get('date')!
+  this.flight.flightDate=this.route.snapshot.paramMap.get('date')!
 
   this.flights=[]
   console.log(this.flight)
@@ -32,7 +32,7 @@ ngOnInit(): void {
 }
 
 private getFlightDetails(){
-  this.flightService.getAvailableFlights(this.flight.origin, this.flight.destination, this.flight.flightdate).subscribe(data=>{
+  this.flightService.getAvailableFlights(this.flight.origin, this.flight.destination, this.flight.flightDate).subscribe(data=>{
     this.flights=data;
     console.log(this.flights);
     

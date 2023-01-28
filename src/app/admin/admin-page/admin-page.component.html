@@ -1,0 +1,81 @@
+<div class="expand-container">
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar-->
+  <div class="border-end bg-white" id="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action list-group-item-light p-3 active">DashBoard</a>
+      <button class="accordion list-group-item list-group-item-action list-group-item-light p-3">Flight</button>
+      <div class="accordion-content">
+        <a class="list-group-item list-group-item-action list-group-item-light p-3"
+          href="./AdminLeave.html">Leave Requests</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3"
+          href="./PreviousLeaves.html">Previous Leaves</a>
+      </div>
+      <div>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3"
+      >Create Flight</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3"
+        href="./taskmanagement2admin.html">User</a>
+        </div>
+      <!-- <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./taskmanagementadmin.html"></a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="./connecttoempoyee.html">Connect Employee</a> -->
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+  <!-- Below links are not needed now -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+</div>
+</div>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+<script>
+  var accordions = document.getElementsByClassName("accordion list-group-item list-group-item-action list-group-item-light p-3");
+
+  for (var i = 0; i < accordions.length; i++) {
+    accordions[i].onclick = function () {
+      this.classList.toggle("is-open");
+
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        // accordion is currently open, so close it
+        content.style.maxHeight = null;
+      } else {
+        // accordion is currently closed, so open it
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    };
+  }
+
+  window.addEventListener("DOMContentLoaded", (event) => {
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector("#sidebarToggle");
+    if (sidebarToggle) {
+      // Uncomment Below to persist sidebar toggle between refreshes
+      // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+      //     document.body.classList.toggle('sb-sidenav-toggled');
+      // }
+      sidebarToggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.body.classList.toggle("sb-sidenav-toggled");
+        localStorage.setItem(
+          "sb|sidebar-toggle",
+          document.body.classList.contains("sb-sidenav-toggled")
+        );
+      });
+    }
+  });
+</script>
+
+<app-create-flight></app-create-flight>
